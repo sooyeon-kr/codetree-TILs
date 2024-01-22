@@ -43,12 +43,11 @@ public class Main {
             int right = 0; 
             for(int j=i+1; j<N; ++j){
                 if(nums[i] < nums[j]) continue;
-                right = Math.max(right, dp[j]);
+                right = Math.max(right, rdp[j]);
             }
             left += right;
             ans = Math.max(ans, left);
         }
-        // System.out.println(Arrays.toString(rdp));
         System.out.println(ans);
     }
 
