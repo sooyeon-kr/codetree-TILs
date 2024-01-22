@@ -30,14 +30,17 @@ public class Main {
 
         for(int i=1; i<N; ++i){
             for(int j=0; j<i; ++j){
-                if(eTime[j] <= sTime[i]) continue;
-                dp[i] = Math.max(dp[i], dp[j] + coins[i]);
+                if(eTime[j] < sTime[i]){
+                    dp[i] = Math.max(dp[i], dp[j] + coins[i]);
+                }
             }
         }
         int ans = 0;
         for(int i=0; i<N; ++i)
             ans = Math.max(ans, dp[i]);
 
+        
+        // System.out.println(Arrays.toString(dp));
         System.out.println(ans);
 	
     }
