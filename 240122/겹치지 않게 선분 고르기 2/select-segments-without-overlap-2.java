@@ -35,8 +35,11 @@ public class Main {
         Line prev = pq.poll();
         while(!pq.isEmpty()){
             Line cur = pq.poll();
-            if(prev.e < cur.s) ++ans;
-            prev = cur;
+            if(prev.e < cur.s){
+                ++ans;
+                prev = cur;
+            } 
+            
         }
 
         System.out.println(ans);
