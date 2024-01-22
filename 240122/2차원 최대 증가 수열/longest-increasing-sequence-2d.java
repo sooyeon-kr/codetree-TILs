@@ -39,8 +39,10 @@ public class Main {
     }
 
     static int findMaxNum(int max, int Y, int X){
-
-        int ret = 1;
+        if(Y==0 && X==0)
+            return 1;
+            
+        int ret = 0;
 
         for(int y=0; y<Y; ++y){
             for(int x=0; x<Y; ++x){
