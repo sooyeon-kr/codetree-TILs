@@ -20,14 +20,18 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for(int i=1; i<=N; ++i)
             nums[i] = Integer.parseInt(st.nextToken());
-        
+        Arrays.fill(dp, -1);
+        dp[0] = dp[1] = 0;
         for(int i=1; i<=N; ++i){
             for(int j=1; j<i; ++j){
+                if(nums[j] == -1) continue;
                 if(j+nums[j] >= i){
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
         }
+
+        // System.out.println(Arrays.toString(dp));
 
         int ans = 0;
         for(int i=1; i<=N; ++i)
