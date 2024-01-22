@@ -22,7 +22,7 @@ public class Main {
             nums[i] = Integer.parseInt(st.nextToken());
         Arrays.fill(dp, -1);
         dp[0] = dp[1] = 0;
-        for(int i=1; i<=N; ++i){
+        for(int i=2; i<=N; ++i){
             for(int j=1; j<i; ++j){
                 if(dp[j] == -1) continue;
                 if(j+nums[j] >= i){
