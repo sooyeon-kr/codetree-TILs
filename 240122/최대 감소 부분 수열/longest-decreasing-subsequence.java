@@ -6,7 +6,6 @@ public class Main {
     static int[] nums;
     static int[] dp;
     public static void main(String[] args) throws Exception{
-    	
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
@@ -20,7 +19,7 @@ public class Main {
             nums[i+1] = Integer.parseInt(st.nextToken());
         
         dp[0] = 0;
-        for(int i=1; i<N; ++i){
+        for(int i=1; i<=N; ++i){
         	if(dp[i] == 0) dp[i] = 1;
             for(int j=1; j<i; ++j){
                 if(nums[j] <= nums[i]) continue;
@@ -29,7 +28,8 @@ public class Main {
         }
         int ans = 0;
         
-        for(int i=0; i<N; ++i)
+        
+        for(int i=0; i<=N; ++i)
             ans = Math.max(ans, dp[i]);
 
         System.out.println(ans);
