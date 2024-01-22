@@ -41,11 +41,11 @@ public class Main {
     static int findMaxNum(int max, int Y, int X){
         if(Y==0 && X==0)
             return 1;
-            
+
         int ret = 0;
 
         for(int y=0; y<Y; ++y){
-            for(int x=0; x<Y; ++x){
+            for(int x=0; x<X; ++x){
                 if(arr[y][x] >= max) continue;
                 ret = Math.max(ret, dp[y][x]+1);
             }
