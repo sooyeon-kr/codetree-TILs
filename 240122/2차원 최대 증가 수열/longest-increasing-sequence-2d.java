@@ -46,6 +46,7 @@ public class Main {
 
         for(int y=0; y<Y; ++y){
             for(int x=0; x<X; ++x){
+                if(dp[y][x]==0) continue;
                 if(arr[y][x] >= max) continue;
                 ret = Math.max(ret, dp[y][x]+1);
             }
