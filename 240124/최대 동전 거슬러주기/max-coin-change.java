@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+    static final int INT_MIN = -(int)1e6;
     static int N, M;
     static int[] coins;
     static int[] dp;
@@ -21,7 +22,8 @@ public class Main {
         for(int i=0; i<N; ++i)
             coins[i] = Integer.parseInt(st.nextToken());
         
-        
+        Arrays.fill(dp, INT_MIN);
+        dp[0] = 0;
         for(int i=1; i<=M; ++i){
             for(int j=0; j<N; ++j){
                 if(i < coins[j]) continue;
@@ -29,7 +31,7 @@ public class Main {
             }
         }
 
-        System.out.println(dp[M]==0 ? -1 : dp[M]);
+        System.out.println(dp[M]==INT_MIN ? -1 : dp[M]);
 	
     }
 }
