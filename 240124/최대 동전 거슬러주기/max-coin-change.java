@@ -26,7 +26,7 @@ public class Main {
         dp[0] = 0;
         for(int i=1; i<=M; ++i){
             for(int j=0; j<N; ++j){
-                if(i < coins[j]) continue;
+                if(i < coins[j] || dp[i-coins[j]] == INT_MIN) continue;
                 dp[i] = Math.max(dp[i], dp[i-coins[j]]+1);
             }
         }
