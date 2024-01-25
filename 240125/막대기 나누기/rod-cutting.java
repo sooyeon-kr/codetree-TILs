@@ -20,8 +20,7 @@ public class Main {
             profit[i] = Integer.parseInt(st.nextToken());
         
         for(int i=0; i<N; ++i){
-            for(int j=1; j<=N; ++j){
-                if(j<i+1) continue;
+            for(int j=1; j<=i; ++j){
                 dp[j] = Math.max(dp[j], dp[j-(i+1)]+profit[i]);
             }
         }
