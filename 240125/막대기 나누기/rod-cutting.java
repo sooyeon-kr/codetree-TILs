@@ -19,11 +19,13 @@ public class Main {
         for(int i=0; i<N; ++i)
             profit[i] = Integer.parseInt(st.nextToken());
         
-        for(int i=1; i<=N; ++i){
-            for(int j=0; j<i; ++j){
-                dp[i] = Math.max(dp[i], dp[j]+profit[i-j]);
+        for(int i=0; i<N; ++i){
+            for(int j=1; j<=N; ++j){
+                if(j<i+1) continue;
+                dp[j] = Math.max(dp[j], dp[j-(i+1)]+profit[i]);
             }
         }
+        // System.out.println(Arrays.toString(dp));
 
         System.out.println(dp[N]);
 
