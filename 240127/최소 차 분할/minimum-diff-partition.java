@@ -25,8 +25,7 @@ public class Main {
         dp[0][0] = true;
         for(int i=1; i<=N; ++i){
             for(int j=1; j<=sum; ++j){
-                if(j - nums[i] < 0) continue;
-                if(dp[i-1][j-nums[i]]){
+                if(j - nums[i] >= 0 && dp[i-1][j-nums[i]]){
                     dp[i][j] = true;
                 }
                 if(dp[i-1][j]){
