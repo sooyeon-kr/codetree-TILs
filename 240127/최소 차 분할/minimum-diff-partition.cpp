@@ -22,6 +22,7 @@ int main(int argc, char** argv)
     sum += arr[i];
   }
   
+  sort(arr+1, arr+n+1, greater<>());
   dp[0][0] = sum;
   dp[0][1] = sum;
 
