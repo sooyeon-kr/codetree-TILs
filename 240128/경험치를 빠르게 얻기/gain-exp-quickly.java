@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
     static final int MN = 105;
-    static final int MT = 105;
+    static final int MT = 10005;
     static int N, M;
     static int[] dp = new int[MT];
     static int[] times = new int[MN];
