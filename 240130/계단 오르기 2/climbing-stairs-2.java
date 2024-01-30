@@ -21,7 +21,7 @@ public class Main {
         dp[1][1] = nums[1];
         dp[2][0] = nums[2];
         dp[2][2] = nums[1]+nums[2];
-        for(int i=2; i<=N; ++i){
+        for(int i=3; i<=N; ++i){
             dp[i][0] = dp[i-2][0] + nums[i];
             for(int j=0; j<4; ++j){
                 dp[i][j] = Math.max(dp[i][j], dp[i-2][j] + nums[i]);
