@@ -19,6 +19,7 @@ public class Main {
         for(int i=1; i<=N; ++i) nums[i] = Integer.parseInt(str[i-1]);
 
         dp[1][1] = nums[1];
+        dp[2][0] = nums[2];
         for(int i=2; i<=N; ++i){
             dp[i][0] = dp[i-2][0] + nums[i];
             for(int j=1; j<4; ++j){
