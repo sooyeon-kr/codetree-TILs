@@ -14,6 +14,8 @@ public class Main {
         StringTokenizer st = null;
 
         N = Integer.parseInt(br.readLine());
+        red = new int[N*2+2];
+        blue = new int[N*2+2];
         for(int i=1; i<=2*N; ++i){
             String[] input = br.readLine().split(" ");
             red[i] = Integer.parseInt(input[0]);
