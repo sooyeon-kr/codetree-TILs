@@ -14,7 +14,7 @@ public class Main {
         StringTokenizer st = null;
 
         N = Integer.parseInt(br.readLine());
-        for(int i=1; i<=N; ++i){
+        for(int i=1; i<=2*N; ++i){
             String[] input = br.readLine().split(" ");
             red[i] = Integer.parseInt(input[0]);
             blue[i] = Integer.parseInt(input[1]);
@@ -22,21 +22,25 @@ public class Main {
 
         dp[0][0] = 0;
         for(int i=1; i<=2*N; ++i){
-            for(int j=1; j<=2*N; ++j){
-                if(j <= N){
-                    dp[i][j] = Math.max(dp[i-1][j-1]+red[i], dp[i-1][j]);
+            for(int j=0; j<=i; ++j){
+                // 빨강 카드 선택
+                if(j > 0){
+                    dp[i][j] = Math.max(dp[i-1][j-1]+red[i], dp[i][j]);
                 }
-                dp[i][j] = Math.max(dp[i-1][j] + blue[i],dp[i][j]);
-                
-                ans = Math.max(ans, dp[i][j]);
+
+                if(i - j > 0){
+                    dp[i][j] = Math.max(dp[i-1][j]+blue[i], dp[i][j]);
+                }
             }
         }
-        for(int i=0; i<=2*N; ++i){
-            for(int j=0; j<=2*N; ++j){
-                System.out.print(dp[i][j]+" ");
-            }
-            System.out.println();
-        }
+
+        ans = dp[2*N][N];
+        // for(int i=0; i<=2*N; ++i){
+        //     for(int j=0; j<=2*N; ++j){
+        //         System.out.print(dp[i][j]+" ");
+        //     }
+        //     System.out.println();
+        // }
         System.out.println(ans);
     }
 }
