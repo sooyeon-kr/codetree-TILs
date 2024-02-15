@@ -16,6 +16,7 @@ public class Main {
         N = Integer.parseInt(br.readLine());
         red = new int[N*2+2];
         blue = new int[N*2+2];
+        dp = new int[N*2+2][N*2+2];
         for(int i=1; i<=2*N; ++i){
             String[] input = br.readLine().split(" ");
             red[i] = Integer.parseInt(input[0]);
