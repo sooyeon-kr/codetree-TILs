@@ -21,7 +21,7 @@ public class Main {
         int ans = 0;
 
         for(int y=0; y<n; ++y){
-            for(int x=0; x<n; ++x){
+            for(int x=0; x<m; ++x){
                 ans = Math.max(ans, getMaxSum(grid, y, x, n, m));
             }
         }
