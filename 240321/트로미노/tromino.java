@@ -13,7 +13,7 @@ public class Main {
 
         for(int y=0; y<n; ++y){
             input = br.readLine().split(" ");
-            for(int x=0; x<n; ++x){
+            for(int x=0; x<m; ++x){
                 grid[y][x] = Integer.parseInt(input[x]);
             }
         }
@@ -41,7 +41,7 @@ public class Main {
         }
 
         if(m-c>=3){
-            int sum = grid[r][c] + grid[r][c+1] + grid[r][c+1];
+            int sum = grid[r][c] + grid[r][c+1] + grid[r][c+2];
             ret = Math.max(ret, sum);
         }
 
