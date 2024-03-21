@@ -32,7 +32,7 @@ public class Main {
 
     static int getMaxSum(int[][] grid, int r, int c, int n, int m){
         int ret = 0;
-        if(n-r>=2 && n-c>=2){
+        if(n-r>=2 && m-c>=2){
             int sum = grid[r][c] + grid[r][c+1] + grid[r+1][c] + grid[r+1][c+1];
             ret = Math.max(ret, sum-grid[r][c]);
             ret = Math.max(ret, sum-grid[r][c+1]);
@@ -40,7 +40,7 @@ public class Main {
             ret = Math.max(ret, sum-grid[r+1][c+1]);
         }
 
-        if(n-c>=3){
+        if(m-c>=3){
             int sum = grid[r][c] + grid[r][c+1] + grid[r][c+1];
             ret = Math.max(ret, sum);
         }
