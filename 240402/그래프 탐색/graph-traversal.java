@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+    static int vertexCnt = 0;
     public static void main(String[] args) throws Exception{
         // 여기에 코드를 작성해주세요.
         BufferedReader br  = new BufferedReader(new InputStreamReader(System.in));
@@ -22,18 +23,18 @@ public class Main {
             graph[e].add(s);
         }
         boolean[] vis = new boolean[N+1];
-        int ans = dfs(graph, vis, 1);
-        System.out.println(ans);
+         dfs(graph, vis, 1);
+        System.out.println(vertexCnt);
     }
 
-    static int dfs(ArrayList<Integer>[] graph, boolean[] vis, int v){
-
-        int cnt = 0;
+    static void dfs(ArrayList<Integer>[] graph, boolean[] vis, int v){
+        vis[v] = true;
         for(int i=0; i<graph[v].size(); ++i){
-            if(vis[i]==true) continue;
-            vis[i] = true;
-            cnt += 1 + dfs(graph, vis, i);
+            if(vis[graph[v].get(i)]==true) continue;
+            vis[graph[v].get(i)] = true;
+            vertexCnt++;
+            dfs(graph, vis, graph[v].get(i));
+
         }
-        return cnt;
     }
 }
