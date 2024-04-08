@@ -19,11 +19,11 @@ int main() {
     return 0;
 }
 void perm(int cnt){
-    if(cnt == n){
+    if(cnt == m){
         printPerm();
         return;
     }
-    for(int i=1; i<=m; ++i){
+    for(int i=1; i<=n; ++i){
         selected.push_back(i);
         perm(cnt + 1);
         selected.pop_back();
