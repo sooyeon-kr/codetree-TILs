@@ -77,7 +77,7 @@ public class Main {
         }
 
         for(int i=1; i<N+1; ++i){
-            sb.append(dist[i]).append('\n');
+            sb.append(dist[i]==INF?-1:dist[i]).append('\n');
         }
 
         bw.write(sb.toString());
