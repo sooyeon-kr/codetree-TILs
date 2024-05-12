@@ -45,7 +45,7 @@ public class Main {
 
         t.isEnd = true;
 
-        return isMeetEnd || notCreateNode;
+        return isMeetEnd;
     }
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
