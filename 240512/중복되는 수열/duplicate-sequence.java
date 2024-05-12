@@ -26,6 +26,7 @@ public class Main {
     static String[] words;
     static TrieNode root = new TrieNode(); // 루트 노드
     static boolean isPrefix;
+    static boolean notCreateNode = true;
     static boolean insertWord(String s){
         TrieNode t = root;
         boolean isMeetEnd = false;
@@ -33,18 +34,18 @@ public class Main {
             int idx = s.charAt(i)-'0'; // 0 ~ 25까지 인덱스 맵핑
             if(t.children[idx] == null){
                 t.children[idx] = new TrieNode();
-            }else{
-                if(t.isEnd == true){
-                    isMeetEnd = true;
-                }
+                notCreateNode = false;
             }
 
             t = t.children[idx];
+            if(t.isEnd == true){
+                isMeetEnd = true;
+            }
         }
 
         t.isEnd = true;
 
-        return isMeetEnd;
+        return isMeetEnd || notCreateNode;
     }
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -63,6 +64,6 @@ public class Main {
             if(isPrefix) break;
         }
 
-        System.out.println(isPrefix ? 1 : 0);
+        System.out.println(isPrefix ? 0 : 1);
     }
 }
