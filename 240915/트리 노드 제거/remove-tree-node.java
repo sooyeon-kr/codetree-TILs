@@ -26,7 +26,6 @@ public class Main {
                 parentNode = child;
                 continue;
             }
-            edge[child].add(parent);
             edge[parent].add(child);
         }
         if(parentNode != dontGoNode){
