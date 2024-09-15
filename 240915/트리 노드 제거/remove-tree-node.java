@@ -44,7 +44,11 @@ public class Main {
         }
 
         for(int next: edge[node]){
-            if(visit[next] || next == dontGoNode) continue;
+            if(visit[next]) continue;
+            if(next == dontGoNode && edge[node].size() == 2){
+                ans++;
+                return;
+            }
             visit[next] = true;
             traversal(next);
         }
@@ -64,6 +68,15 @@ public class Main {
     0
    1. 2
   3.4
+
+9
+6 6 3 7 1 2 7 -1 1
+2
+
+        7    
+    6.      3        
+   0  1.    2         
+     8 4.   5
 
 
 1. 내려가서 연결된게 0개면
