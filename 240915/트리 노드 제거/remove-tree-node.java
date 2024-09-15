@@ -47,9 +47,9 @@ public class Main {
             if(visit[next]) continue;
             if(next == dontGoNode && edge[node].size() == 2){
                 ans++;
+                visit[next] = true;
                 return;
             }
-            visit[next] = true;
             traversal(next);
         }
     }
