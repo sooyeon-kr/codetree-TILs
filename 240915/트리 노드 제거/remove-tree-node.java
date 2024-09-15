@@ -48,7 +48,7 @@ public class Main {
     static void traversal(int node){
         boolean isLeef = true;
         for(int next: edge[node]){
-            if(visit[next]) continue;
+            if(visit[next] || isCut[next]) continue;
             visit[next] = true;
             isLeef = false;
             traversal(next);
