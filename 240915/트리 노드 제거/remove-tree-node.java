@@ -6,7 +6,7 @@ public class Main {
     static int N;
     static ArrayList<Integer>[] edge = new ArrayList[MN];
     static int ans = 0;
-
+    static boolean[] isCut;
     static int parentNode = 0;
     static boolean[] visit;
     static int dontGoNode;
@@ -17,6 +17,7 @@ public class Main {
 
         N = Integer.parseInt(br.readLine());
         visit = new boolean[N];
+        isCut = new boolean[N];
         for(int i=0; i<N; ++i) edge[i] = new ArrayList<>();
         String[] input = br.readLine().split(" ");
         dontGoNode = Integer.parseInt(br.readLine());
@@ -28,6 +29,8 @@ public class Main {
             }
             edge[parent].add(child);
         }
+        isCut[dontGoNode] = true;
+        cutTree(dontGoNode);
         if(parentNode != dontGoNode){
             visit[parentNode]=true;
             traversal(parentNode);
@@ -35,22 +38,22 @@ public class Main {
 
         System.out.println(ans);
     }
-
-    static void traversal(int node){
-        if(edge[node].size()==1){
-            ans++;
-            return;
+    static void cutTree(int node){
+        for(int next:edge[node]){
+            if(isCut[next]) continue;
+            isCut[next]=true;
+            cutTree(next);
         }
-
+    }
+    static void traversal(int node){
+        boolean isLeef = true;
         for(int next: edge[node]){
             if(visit[next]) continue;
-            if(next == dontGoNode && edge[node].size() == 2){
-                ans++;
-                return;
-            }
             visit[next] = true;
+            isLeef = false;
             traversal(next);
         }
+        if(isLeef) ans++;
     }
 
 }
