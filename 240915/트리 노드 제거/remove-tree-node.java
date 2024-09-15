@@ -29,9 +29,10 @@ public class Main {
             edge[child].add(parent);
             edge[parent].add(child);
         }
-
-        visit[parentNode]=true;
-        traversal(parentNode);
+        if(parentNode != dontGoNode){
+            visit[parentNode]=true;
+            traversal(parentNode);
+        }
 
         System.out.println(ans);
     }
@@ -59,6 +60,11 @@ public class Main {
 -1 0 0 1 1
 
 2 3 4
+
+    0
+   1. 2
+  3.4
+
 
 1. 내려가서 연결된게 0개면
 2. 
