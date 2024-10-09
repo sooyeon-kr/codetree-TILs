@@ -132,7 +132,12 @@ public class Main {
 				i++;
 				k = 0;
 				continue;
-			}
+			}else if((inRange(ny, nx))&&map[ny][nx]!=WALL && tree[ny][nx] == 0){
+                i++;
+				k = 0;
+                killer[ny][nx] = C+1;
+                continue;
+            }
 			ans += tree[ny][nx];
 			tree[ny][nx] = 0;
 			killer[ny][nx] = C + 1;
