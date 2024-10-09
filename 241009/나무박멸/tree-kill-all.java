@@ -124,23 +124,24 @@ public class Main {
 		ans += tree[y][x];
 		tree[y][x] = 0;
 		killer[y][x] = C + 1;
-		int k = 1;
-		for (int i = 0; i < dd.length; k++) {
-			int ny = y + dy[dd[i]] * k;
-			int nx = x + dx[dd[i]] * k;
-			if (!(inRange(ny, nx) && map[ny][nx] != WALL && tree[ny][nx] > 0)) {
-				i++;
-				k = 0;
-				continue;
-			}else if((inRange(ny, nx))&&map[ny][nx]!=WALL && tree[ny][nx] == 0){
-                i++;
-				k = 0;
+		for (int i = 0; i < dd.length; i++) {
+            for(int k=1; k<=K; ++k){
+                int ny = y + dy[dd[i]] * k;
+				int nx = x + dx[dd[i]] * k;
+
+                if(!(inRange(ny, nx))){
+                    break;
+                }else if(map[ny][nx] == WALL){
+                    break;
+                }else if(tree[ny][nx] == 0){
+                    killer[ny][nx] = C+1;
+                    break;
+                }
+                ans += tree[ny][nx];
+                tree[ny][nx] = 0;
                 killer[ny][nx] = C+1;
-                continue;
+
             }
-			ans += tree[ny][nx];
-			tree[ny][nx] = 0;
-			killer[ny][nx] = C + 1;
 		}
 	}
 
