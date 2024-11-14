@@ -15,6 +15,8 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
+        Arrays.sort(arr);
+
         for(int i=0; i<M; ++i){
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
