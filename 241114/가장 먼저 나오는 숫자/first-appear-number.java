@@ -23,17 +23,22 @@ public class Main {
     }
 
     static int func(int[] arr, int target){
-        int left = 0, right = arr.length;
+        int low = lower(arr, target);
+        int upp = upper(arr, target);
+
+        return low == upp ? -1 : low+1;
+    }
+
+    static int lower(int[] arr, int target){
+        int left = 0, right = arr.length - 1;
+        int maxIdx = right + 1;
 
         while(left <= right){
             int mid = (left + right) / 2;
             
-            if(arr[mid] == target){
-                return mid + 1;
-            }
-
-            if(arr[mid] > target){
+            if(arr[mid] >= target){
                 right = mid - 1;
+                maxIdx = Math.min(maxIdx, mid);
             }
 
             else{
@@ -41,6 +46,26 @@ public class Main {
             }
         }
 
-        return -1;
+        return maxIdx;
+    }
+
+    static int upper(int[] arr, int target){
+        int left = 0, right = arr.length - 1;
+        int maxIdx = right + 1;
+
+        while(left <= right){
+            int mid = (left + right) / 2;
+            
+            if(arr[mid] > target){
+                right = mid - 1;
+                maxIdx = Math.min(maxIdx, mid);
+            }
+
+            else{
+                left = mid + 1;
+            }
+        }
+
+        return maxIdx;
     }
 }
