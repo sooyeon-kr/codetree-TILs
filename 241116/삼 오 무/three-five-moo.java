@@ -15,9 +15,13 @@ public class Main {
         while(left <= right){
             int mid = (left + right) / 2;
             int cnt = func(mid);
-            if(cnt >= N){
+            if(cnt == N){
                 right = mid - 1;
                 minNum = Math.min(minNum, mid);
+            }
+
+            else if(cnt > N){
+                right = mid -1;
             }
 
             else{
