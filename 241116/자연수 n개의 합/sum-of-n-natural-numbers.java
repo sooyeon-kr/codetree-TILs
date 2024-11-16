@@ -16,7 +16,7 @@ public class Main {
         while(left <= right){
             long mid = (left + right) / 2;
         
-            if(mid * (mid + 1) > s * 2){
+            if(mid * (mid + 1) / 2 > s){
                 right = mid -1;
             }
 
