@@ -10,7 +10,7 @@ public class Main {
     }
 
     static long parametic(long s){
-        long left = 1, right = s;
+        long left = 1, right = (long)Math.sqrt(s) * 2;
         long minNum = 0;
 
         while(left <= right){
