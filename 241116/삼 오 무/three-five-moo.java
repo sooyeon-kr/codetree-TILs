@@ -9,12 +9,12 @@ public class Main {
         System.out.println(parametic(N));
     }
 
-    static int parametic(int N){
-        int left = 1, right = 2_000_000_000;
-        int minNum = 2_000_000_001;
+    static long parametic(int N){
+        long left = 1, right = Integer.MAX_VALUE;
+        long minNum = Integer.MAX_VALUE;
         while(left <= right){
-            int mid = (left + right+1) / 2;
-            int cnt = func(mid);
+            long mid = (left + right+1) / 2;
+            long cnt = func(mid);
             if(cnt == N){
                 while(true){
                     if(mid % 3 !=0 && mid % 5 != 0){
@@ -36,7 +36,7 @@ public class Main {
         return minNum;
     }
 
-    static int func(int num){
+    static long func(long num){
         return num - num / 3 - num / 5 + num / 15;
     }
 }
