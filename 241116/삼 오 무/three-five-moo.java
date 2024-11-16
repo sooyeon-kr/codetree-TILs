@@ -13,7 +13,7 @@ public class Main {
         int left = 1, right = 2_000_000_000;
         int minNum = 2_000_000_001;
         while(left <= right){
-            int mid = (left + right) / 2;
+            int mid = (left + right+1) / 2;
             int cnt = func(mid);
             if(cnt == N){
                 while(true){
