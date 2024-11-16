@@ -11,16 +11,13 @@ public class Main {
 
     static int parametic(int N){
         int left = 1, right = 2_000_000_000;
-
+        int minNum = 2_000_000_000;
         while(left <= right){
             int mid = (left + right) / 2;
             int cnt = func(mid);
-            if(cnt == N){
-                return mid;
-            }
-
-            else if(cnt > N){
+            if(cnt >= N){
                 right = mid - 1;
+                minNum = Math.min(minNum, mid);
             }
 
             else{
@@ -28,7 +25,7 @@ public class Main {
             }
         }
 
-        return left;
+        return minNum;
     }
 
     static int func(int num){
