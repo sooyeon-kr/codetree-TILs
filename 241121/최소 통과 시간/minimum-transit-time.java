@@ -17,11 +17,11 @@ public class Main {
             maxNum = Math.max(maxNum, arr[i]);
         }
 
-        maxNum *= m;
+        maxNum *= n;
 
         long st = 1, en = maxNum;
-        long maxTime = maxNum*10;
-
+        long maxTime = maxNum;
+        
         while(st <= en){
             long mid = (st + en) / 2;
             if(func(mid)){
