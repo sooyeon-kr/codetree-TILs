@@ -38,7 +38,7 @@ public class Main {
 
     static boolean func(long target){
 
-        int sum = 0;
+        long sum = 0;
         for(int i=0; i<m; ++i){
             sum += target / arr[i];
             if(sum >= n) return true;
