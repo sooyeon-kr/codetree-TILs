@@ -20,7 +20,7 @@ public class Main {
         maxNum *= m;
 
         long st = 1, en = maxNum;
-        long maxTime = maxNum;
+        long maxTime = maxNum*10;
 
         while(st <= en){
             long mid = (st + en) / 2;
